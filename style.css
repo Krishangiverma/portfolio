@@ -8,6 +8,7 @@
 body {
 background: #020617;
 color: #e2e8f0;
+overflow-x: hidden; /* 🔥 prevents horizontal scroll issues */
 }
 
 /* 🔹 Navbar */
@@ -23,6 +24,8 @@ z-index: 100;
 
 .logo {
 color: #38bdf8;
+font-weight: bold;
+letter-spacing: 1px;
 }
 
 .navbar ul {
@@ -34,6 +37,11 @@ list-style: none;
 .navbar a {
 color: #e2e8f0;
 text-decoration: none;
+transition: 0.3s;
+}
+
+.navbar a:hover {
+color: #38bdf8;
 }
 
 /* 🔹 Hero */
@@ -59,9 +67,13 @@ border-radius: 50%;
 margin-top: 30px;
 border: 3px solid #38bdf8;
 box-shadow: 0 0 30px rgba(56, 189, 248, 0.6);
+object-fit: cover;
+object-position: top;
+transition: 0.3s;
+}
 
-object-fit: cover;       /* fills circle */
-object-position: top;    
+.profile-img:hover {
+transform: scale(1.05);
 }
 
 /* 🔗 Social */
@@ -76,7 +88,6 @@ color: #38bdf8;
 transition: 0.3s;
 }
 
-/* 🔥 Hover Glow Effect */
 .socials a:hover {
 color: white;
 transform: scale(1.2);
@@ -89,6 +100,7 @@ background: #0f172a;
 margin: 30px auto;
 padding: 25px;
 width: 80%;
+max-width: 1000px; /* 🔥 prevents too wide layout */
 border-radius: 12px;
 border: 1px solid #1e293b;
 transition: 0.3s;
@@ -103,10 +115,10 @@ color: #38bdf8;
 margin-bottom: 15px;
 }
 
-/* 🔹 Skills */
+/* 🔹 Skills Grid (AUTO RESPONSIVE 🔥) */
 .skill-grid {
 display: grid;
-grid-template-columns: repeat(4, 1fr);
+grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
 gap: 20px;
 }
 
@@ -115,23 +127,17 @@ background: #020617;
 padding: 20px;
 text-align: center;
 border-radius: 10px;
+transition: 0.3s;
 }
 
 .skill:hover {
 box-shadow: 0 0 10px #38bdf8;
 }
 
-/* 🔹 Footer */
-footer {
-text-align: center;
-padding: 20px;
-color: #94a3b8;
-}
-
-/* 🔗 Link Grid (Same as Skills but clickable) */
+/* 🔗 Link Grid (AUTO RESPONSIVE 🔥) */
 .link-grid {
 display: grid;
-grid-template-columns: repeat(4, 1fr);
+grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
 gap: 20px;
 }
 
@@ -147,10 +153,45 @@ transition: 0.3s;
 border: 1px solid #1e293b;
 }
 
-/* 🔥 Hover Effect */
 .link-box:hover {
 box-shadow: 0 0 15px #38bdf8;
 color: #38bdf8;
 transform: translateY(-5px);
+}
+
+/* 🔹 Footer */
+footer {
+text-align: center;
+padding: 20px;
+color: #94a3b8;
+}
+
+/* 📱 Mobile Responsive */
+@media (max-width: 768px) {
+
+.navbar {
+flex-direction: column;
+align-items: center;
+gap: 10px;
+}
+
+.navbar ul {
+flex-wrap: wrap;
+justify-content: center;
+}
+
+.hero h2 {
+font-size: 1.8rem;
+}
+
+.card {
+width: 90%;
+padding: 20px;
+}
+
+.profile-img {
+width: 130px;
+height: 130px;
+}
 }
 
